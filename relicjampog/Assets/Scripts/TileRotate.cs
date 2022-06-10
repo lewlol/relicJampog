@@ -8,7 +8,7 @@ public class TileRotate : MonoBehaviour
     public float rPos;
     private void Start()
     {
-        lPos = 0;
+        lPos = 270;
         rPos = -180;
     }
     private void OnMouseOver()
@@ -17,11 +17,6 @@ public class TileRotate : MonoBehaviour
         {
             RotateLeft();
             Debug.Log("Left Rotation");
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            RotateRight();
-            Debug.Log("Right Rotation");
         }
     }
 
