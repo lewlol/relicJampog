@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 5439349586922198008}
   - component: {fileID: 656723934933315808}
   - component: {fileID: 656723934933315815}
+  - component: {fileID: 2878514443220729049}
   m_Layer: 0
   m_Name: OneWayTile
   m_TagString: Untagged
@@ -320,3 +321,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lPos: 0
   rPos: 0
+--- !u!114 &2878514443220729049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434210450216269704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4af3bb6f9d6d54d861da4db16a3c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
