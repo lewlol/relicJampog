@@ -30,7 +30,6 @@ public class ActivationCheck : MonoBehaviour
             DeActivated();
         }
     }
-
     public void Activated()
     {
         tile.sprite = active;
@@ -41,4 +40,7 @@ public class ActivationCheck : MonoBehaviour
         tile.sprite = deActive;
         gameObject.GetComponentInParent<BlockActivated>().isActive = false;
     }
+
+
+   
 }
