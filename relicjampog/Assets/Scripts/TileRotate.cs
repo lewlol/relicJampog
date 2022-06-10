@@ -39,6 +39,7 @@ public class TileRotate : MonoBehaviour
             lPos = 0;
         }
         LeanTween.rotateZ(gameObject, lPos, 0.5f);
+        
     }
     public void RotateRight()
     {       
@@ -53,5 +54,6 @@ public class TileRotate : MonoBehaviour
             lPos = 0;
         }
         LeanTween.rotateZ(gameObject, rPos, 0.5f);
+        
     }
 }
