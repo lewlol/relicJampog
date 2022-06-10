@@ -11,4 +11,15 @@ public class BlockActivated : MonoBehaviour
     {
         isActive = false;
     }
+
+    private void Update()
+    {
+        if(isActive == true)
+        {
+            gameObject.tag = "active";
+        } else
+        {
+            gameObject.tag = "notActive";
+        }
+    }
 }

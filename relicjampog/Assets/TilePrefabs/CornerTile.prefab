@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2471096648364428420}
   - component: {fileID: 2471096648364428421}
   - component: {fileID: 2471096648364428422}
+  - component: {fileID: 4687605043742709659}
   m_Layer: 0
   m_Name: CornerTile
   m_TagString: Untagged
@@ -224,6 +225,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lPos: 0
   rPos: 0
+--- !u!114 &4687605043742709659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471096648364428423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4af3bb6f9d6d54d861da4db16a3c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!1 &2471096648927767632
 GameObject:
   m_ObjectHideFlags: 0

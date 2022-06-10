@@ -8,35 +8,37 @@ public class ActivationCheck : MonoBehaviour
     public Sprite active;
     public Sprite deActive;
 
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.tag == "connection" && collision.gameObject.GetComponentInParent<BlockActivated>().isActive == true)
+        if(other.gameObject.tag == "power")
         {
-            tile.sprite = active;
-            Debug.Log("Connected");
-            gameObject.GetComponentInParent<BlockActivated>().isActive = true;
+            Activated();
         }
-
-        if(collision.gameObject.tag == "power")
+        if(other.gameObject.tag == "connection" && other.gameObject.GetComponentInParent<BlockActivated>().isActive == true)
         {
-            gameObject.GetComponentInParent<BlockActivated>().isActive = true;
-            tile.sprite = active;
+            Activated();
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "connection" && collision.gameObject.GetComponentInParent<BlockActivated>().isActive == true)
+        if (other.gameObject.tag == "power")
         {
-            tile.sprite = deActive;
-            Debug.Log("Disconnected");
-            gameObject.GetComponentInParent<BlockActivated>().isActive = false;
+            DeActivated();
         }
-        if (collision.gameObject.tag == "power")
+        if (other.gameObject.tag == "connection" && other.gameObject.GetComponentInParent<BlockActivated>().isActive == true)
         {
-            gameObject.GetComponentInParent<BlockActivated>().isActive = false;
-            tile.sprite = deActive;
+            DeActivated();
         }
+    }
+
+    public void Activated()
+    {
+        tile.sprite = active;
+        gameObject.GetComponentInParent<BlockActivated>().isActive = true;
+    }
+    public void DeActivated()
+    {
+        tile.sprite = deActive;
+        gameObject.GetComponentInParent<BlockActivated>().isActive = false;
     }
 }

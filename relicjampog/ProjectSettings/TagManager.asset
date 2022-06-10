@@ -6,6 +6,8 @@ TagManager:
   tags:
   - connection
   - power
+  - active
+  - notActive
   layers:
   - Default
   - TransparentFX
