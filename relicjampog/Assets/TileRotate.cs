@@ -8,8 +8,8 @@ public class TileRotate : MonoBehaviour
     public float rPos;
     private void Start()
     {
-        lPos = 90;
-        rPos = 90;
+        lPos = 0;
+        rPos = -180;
     }
     private void OnMouseOver()
     {
@@ -27,30 +27,31 @@ public class TileRotate : MonoBehaviour
 
     public void RotateLeft()
     {
-        LeanTween.rotateZ(gameObject, lPos, 0.5f);
-        lPos += 90;
-        rPos -= 90;
-        if (rPos < -270)
+
+        lPos = lPos + 90;
+        rPos = rPos - 90;
+        if (rPos < -270 | rPos > 0)
         {
             rPos = 0;
         }
-        if (lPos > 270)
+        if (lPos > 270 | lPos < 0)
         {
             lPos = 0;
         }
+        LeanTween.rotateZ(gameObject, lPos, 0.5f);
     }
     public void RotateRight()
-    {
-        LeanTween.rotateZ(gameObject, rPos, 0.5f);
-        rPos -= 90;
-        lPos += 90;
-        if (rPos < -270)
+    {       
+        rPos = rPos - 90;
+        lPos = lPos + 90;
+        if (rPos < -270 | rPos > 0)
         {
             rPos = 0;
         }
-        if (lPos > 270)
+        if (lPos > 270 | lPos < 0)
         {
             lPos = 0;
         }
+        LeanTween.rotateZ(gameObject, rPos, 0.5f);
     }
 }
