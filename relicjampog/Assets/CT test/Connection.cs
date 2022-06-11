@@ -42,17 +42,9 @@ public class Connection : MonoBehaviour
     }
 
     public void Activated()
-    {
-        tile.sprite = active;
-        gameObject.GetComponentInParent<BlockActivated>().isActive = true;
-       
-
+    { 
     }
     public void DeActivated()
     {
-        tile.sprite = deActive;
-        gameObject.GetComponentInParent<BlockActivated>().isActive = false;
-      
-
     }
 }

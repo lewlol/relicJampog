@@ -8,7 +8,7 @@ public class BulbBlock : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "connection" && collision.gameObject.GetComponentInParent<BlockActivated>().isActive == true)
+        if (collision.gameObject.tag == "connection")
         {
             powerAnim.SetBool("bulbPowered", true);
         }
