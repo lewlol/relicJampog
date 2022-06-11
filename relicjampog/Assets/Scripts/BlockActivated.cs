@@ -16,7 +16,7 @@ public class BlockActivated : MonoBehaviour
     {
         if(isActive == true)
         {
-            gameObject.tag = "active";
+            gameObject.tag = "Active";
         } else
         {
             gameObject.tag = "notActive";
