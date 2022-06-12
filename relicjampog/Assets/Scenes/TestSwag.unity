@@ -656,6 +656,8 @@ MonoBehaviour:
   jumpPower: 5
   extrajumps: 1
   strength: 0
+  shrink: 1
+  isshrunk: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -893,7 +895,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1193,6 +1195,8 @@ MonoBehaviour:
   jumpPower: 5
   extrajumps: 0
   strength: 1
+  shrink: 0
+  isshrunk: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
