@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class testmovement : MonoBehaviour
 {
+    
+
     //All Char Vars
     public float speed = 10f;
     public float jumpPower = 15f;
 
     //Abilities
-    public int extrajumps = 1;
-    public int strength = 0;
+    public int extrajumps = 1; //dani double jump
+    public int strength = 0; // lew strong grrr
+    public int shrink = 1; //radlyns small
+
 
     //Physics and Ground
     [SerializeField] public LayerMask groundLayer;
@@ -37,6 +41,18 @@ public class testmovement : MonoBehaviour
         CheckGrounded();
         FlipSprite();
         WalkingAnim();
+
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && shrink == 1)
+        {
+            StartCoroutine(shrinking());
+        }
+                
+
+        
+           
+
+
     }
     private void FixedUpdate()
     {
@@ -92,4 +108,20 @@ public class testmovement : MonoBehaviour
     {
         spriteAnims.SetBool("isWalking", false);
     }
+
+
+    IEnumerator shrinking()
+    {
+        yield return new WaitForSeconds(0.0001f);
+        Vector2 objectScale = transform.localScale;
+        transform.localScale = new Vector2(objectScale.x * 0.5f, objectScale.y * 0.5f);
+        yield return new WaitForSeconds(2f);
+        transform.localScale = new Vector2(objectScale.x * 1f, objectScale.y * 1f);
+
+
+    }
+    
+
+
+
 }
