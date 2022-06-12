@@ -10,6 +10,9 @@ public class HeavyBlock : MonoBehaviour
         //Freeze the constraints
     }
 
+    //On enter if strength = 1 Unlock constraints  
+    //on exit lock constraints
+
     // Update is called once per frame
     void Update()
     {
