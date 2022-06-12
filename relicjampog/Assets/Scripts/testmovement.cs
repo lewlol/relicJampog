@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class testmovement : MonoBehaviour
 {
+    //All Char Vars
     public float speed = 10f;
     public float jumpPower = 15f;
+
+    //Abilities
     public int extrajumps = 1;
+
+    //Physics and Ground
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] Transform feet;
@@ -19,19 +24,16 @@ public class testmovement : MonoBehaviour
     private void Update()
     {
         mx = Input.GetAxis("Horizontal");
-
         if(Input.GetButtonDown("Jump"))
         {
             Jump();
         }
         CheckGrounded();
     }
-
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
     }
-
     void Jump ()
     {
         if (isGrounded || jumpCount < extrajumps)
@@ -39,9 +41,7 @@ public class testmovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpCount++;
         }
-
     }
-
     void CheckGrounded()
     {
         if(Physics2D.OverlapCircle(feet.position,0.5f,groundLayer))
@@ -56,9 +56,6 @@ public class testmovement : MonoBehaviour
         else
         {
             isGrounded = false;
-        }
-        
+        }     
     }
-
-
 }
