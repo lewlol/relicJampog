@@ -14,7 +14,11 @@ public class Playerchange : MonoBehaviour
 
     //Player Switch Bool
     public bool isplayer1;
-    
+
+    //Character Walking Bug Fix
+    public testmovement lew;
+    public testmovement dani;
+
 
     //Switches to Player 1 on Start
     private void Awake()
@@ -38,6 +42,7 @@ public class Playerchange : MonoBehaviour
     //Switching Code
     public void SwitchPlayerOne()
     {
+        dani.SendMessage("StopWalking");
         player1.GetComponent<testmovement>().enabled = true;
         player2.GetComponent<testmovement>().enabled = false;
         isplayer1 = true;
@@ -46,6 +51,7 @@ public class Playerchange : MonoBehaviour
     }
     public void SwitchPlayerTwo()
     {
+        lew.SendMessage("StopWalking");
         player1.GetComponent<testmovement>().enabled = false;
         player2.GetComponent<testmovement>().enabled = true;
         isplayer1 = false;

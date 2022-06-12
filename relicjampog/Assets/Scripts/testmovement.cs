@@ -87,4 +87,9 @@ public class testmovement : MonoBehaviour
             spriteAnims.SetBool("isWalking", false);
         }
     }
+
+    void StopWalking()
+    {
+        spriteAnims.SetBool("isWalking", false);
+    }
 }

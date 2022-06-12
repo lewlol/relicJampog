@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class HeavyBlock : MonoBehaviour
 {
-    public Rigidbody2D heavyblock;
+    private Rigidbody2D heavyblock;
     void Start()
     {
-        //Freeze the constraints
+        heavyblock = gameObject.GetComponent<Rigidbody2D>();
+
+        heavyblock.bodyType = RigidbodyType2D.Dynamic;
     }
-
-    //On enter if strength = 1 Unlock constraints  
-    //on exit lock constraints
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.GetComponent<testmovement>().strength > 0)
+        {
+            heavyblock.bodyType = RigidbodyType2D.Dynamic;
+        }
+        if (collision.gameObject.GetComponent<testmovement>().strength == 0)
+        {
+            heavyblock.bodyType = RigidbodyType2D.Static;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<testmovement>().strength == 0)
+        {
+            heavyblock.bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 }
