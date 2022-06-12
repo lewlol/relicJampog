@@ -15,11 +15,16 @@ public class testmovement : MonoBehaviour
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] Transform feet;
+    [SerializeField] SpriteRenderer sprite;
 
+    //Vars
     int jumpCount = 0;
     bool isGrounded;
-    float mx;
+    public float mx;
     float jumpCoolDown;
+
+    //Animation
+    public Animator spriteAnims;
 
     private void Update()
     {
@@ -29,6 +34,8 @@ public class testmovement : MonoBehaviour
             Jump();
         }
         CheckGrounded();
+        FlipSprite();
+        WalkingAnim();
     }
     private void FixedUpdate()
     {
@@ -57,5 +64,26 @@ public class testmovement : MonoBehaviour
         {
             isGrounded = false;
         }     
+    }
+    void FlipSprite()
+    {
+        if(mx < 0)
+        {
+            sprite.flipX = true;
+        }else if(mx > 0)
+        {
+            sprite.flipX = false;
+        }
+    }
+
+    void WalkingAnim()
+    {
+        if(mx != 0)
+        {
+            spriteAnims.SetBool("isWalking", true);
+        }else
+        {
+            spriteAnims.SetBool("isWalking", false);
+        }
     }
 }
