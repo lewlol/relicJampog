@@ -10,6 +10,7 @@ public class testmovement : MonoBehaviour
 
     //Abilities
     public int extrajumps = 1;
+    public int strength = 0;
 
     //Physics and Ground
     [SerializeField] public LayerMask groundLayer;
