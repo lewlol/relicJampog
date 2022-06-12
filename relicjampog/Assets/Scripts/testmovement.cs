@@ -14,6 +14,7 @@ public class testmovement : MonoBehaviour
     public int extrajumps = 1; //dani double jump
     public int strength = 0; // lew strong grrr
     public int shrink = 1; //radlyns small
+    public bool isshrunk = false;
 
 
     //Physics and Ground
@@ -43,7 +44,7 @@ public class testmovement : MonoBehaviour
         WalkingAnim();
 
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && shrink == 1)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && shrink == 1 && isshrunk == false)
         {
             StartCoroutine(shrinking());
         }
@@ -112,11 +113,16 @@ public class testmovement : MonoBehaviour
 
     IEnumerator shrinking()
     {
+        isshrunk = true;
         yield return new WaitForSeconds(0.0001f);
         Vector2 objectScale = transform.localScale;
         transform.localScale = new Vector2(objectScale.x * 0.5f, objectScale.y * 0.5f);
         yield return new WaitForSeconds(2f);
         transform.localScale = new Vector2(objectScale.x * 1f, objectScale.y * 1f);
+
+        yield return new WaitForSeconds(2f); //Cooldown for shrink ability change if u want a diff cooldown
+        isshrunk = false;
+
 
 
     }
