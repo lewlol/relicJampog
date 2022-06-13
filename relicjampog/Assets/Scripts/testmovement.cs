@@ -35,12 +35,16 @@ public class testmovement : MonoBehaviour
     public Animator spriteAnims;
     private void FixedUpdate()
     {
+        rb.velocity = new Vector2(mx * speed, rb.velocity.y);
+
+    }
+    private void LateUpdate()
+    {
         mx = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
-        }
-        rb.velocity = new Vector2(mx * speed, rb.velocity.y);
+        }      
         CheckGrounded();
         FlipSprite();
         WalkingAnim();
