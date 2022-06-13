@@ -9,6 +9,7 @@ TagManager:
   - active
   - notActive
   - Player2
+  - ResBar
   layers:
   - Default
   - TransparentFX
