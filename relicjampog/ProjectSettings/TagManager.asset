@@ -8,6 +8,7 @@ TagManager:
   - power
   - active
   - notActive
+  - Player2
   layers:
   - Default
   - TransparentFX
