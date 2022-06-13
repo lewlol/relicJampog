@@ -166,7 +166,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2268407729093210524
 MonoBehaviour:
@@ -186,6 +186,8 @@ MonoBehaviour:
   strength: 1
   shrink: 0
   isshrunk: 0
+  lightweight: 1
+  islight: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
