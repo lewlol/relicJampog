@@ -33,33 +33,28 @@ public class testmovement : MonoBehaviour
 
     //Animation
     public Animator spriteAnims;
-
-    private void Update()
+    private void FixedUpdate()
     {
         mx = Input.GetAxis("Horizontal");
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
+        rb.velocity = new Vector2(mx * speed, rb.velocity.y);
         CheckGrounded();
         FlipSprite();
         WalkingAnim();
 
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && shrink == 1 && isshrunk == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && shrink == 1 && isshrunk == false)
         {
             StartCoroutine(shrinking());
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && lightweight == 1 && islight == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && lightweight == 1 && islight == false)
         {
             StartCoroutine(getslight());
         }
-
-    }
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(mx * speed, rb.velocity.y);
     }
     void Jump ()
     {
