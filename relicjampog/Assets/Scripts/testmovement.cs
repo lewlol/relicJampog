@@ -15,7 +15,7 @@ public class testmovement : MonoBehaviour
     public int strength = 0; // lew strong grrr
     public int shrink = 1; //radlyns small
     public bool isshrunk = false;
-    public int light = 1; //Light footed
+    public int lightweight = 1; //Light footed
     public bool islight = false;
 
 
@@ -51,7 +51,7 @@ public class testmovement : MonoBehaviour
             StartCoroutine(shrinking());
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && light == 1 && islight == false)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && lightweight == 1 && islight == false)
         {
             StartCoroutine(getslight());
         }
@@ -130,9 +130,14 @@ public class testmovement : MonoBehaviour
 
     IEnumerator getslight()
     {
-        isshrunk = true;
+        islight = true;
         yield return new WaitForSeconds(0.0001f);
-        
+        rb.gravityScale -= 0.5f;
+        yield return new WaitForSeconds(3f);
+        rb.gravityScale = 1f;
+        yield return new WaitForSeconds(2f); //cooldown
+        islight = false;
+
 
     }
 
