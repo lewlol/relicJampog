@@ -15,6 +15,8 @@ public class testmovement : MonoBehaviour
     public int strength = 0; // lew strong grrr
     public int shrink = 1; //radlyns small
     public bool isshrunk = false;
+    public int light = 1; //Light footed
+    public bool islight = false;
 
 
     //Physics and Ground
@@ -48,6 +50,12 @@ public class testmovement : MonoBehaviour
         {
             StartCoroutine(shrinking());
         }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && light == 1 && islight == false)
+        {
+            StartCoroutine(getslight());
+        }
+
     }
     private void FixedUpdate()
     {
@@ -119,4 +127,15 @@ public class testmovement : MonoBehaviour
         yield return new WaitForSeconds(2f); //Cooldown for shrink ability change if u want a diff cooldown
         isshrunk = false;
     }
+
+    IEnumerator getslight()
+    {
+        isshrunk = true;
+        yield return new WaitForSeconds(0.0001f);
+        
+
+    }
+
+
+
 }
