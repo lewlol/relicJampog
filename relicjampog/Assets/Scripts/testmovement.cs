@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testmovement : MonoBehaviour
 {
-    
+
 
     //All Char Vars
     public float speed = 10f;
@@ -15,8 +15,17 @@ public class testmovement : MonoBehaviour
     public int strength = 0; // lew strong grrr
     public int shrink = 1; //radlyns small
     public bool isshrunk = false;
-    public int lightweight = 1; //Light footed
-    public bool islight = false;
+
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingpower ;
+    private float dashingTime = 0.23f;
+    private float dashingCooldown = 1f;
+
+    [SerializeField] TrailRenderer tr;
+
+
+
 
 
     //Physics and Ground
@@ -33,18 +42,47 @@ public class testmovement : MonoBehaviour
 
     //Animation
     public Animator spriteAnims;
+
+    private void Start()
+    {
+        rb= GetComponent<Rigidbody2D>();
+       
+    }
+    
+
     private void FixedUpdate()
     {
+        if(isDashing)
+        {
+            return;
+        }
+
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
+
+
 
     }
     private void LateUpdate()
+
+       
+
     {
-        mx = Input.GetAxis("Horizontal");
+        if (isDashing)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+    
+
+            mx = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
-        }      
+        }
         CheckGrounded();
         FlipSprite();
         WalkingAnim();
@@ -55,12 +93,14 @@ public class testmovement : MonoBehaviour
             StartCoroutine(shrinking());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && lightweight == 1 && islight == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            StartCoroutine(getslight());
+            StartCoroutine(Dash());
         }
+
+
     }
-    void Jump ()
+    void Jump()
     {
         if (isGrounded || jumpCount < extrajumps)
         {
@@ -70,26 +110,28 @@ public class testmovement : MonoBehaviour
     }
     void CheckGrounded()
     {
-        if(Physics2D.OverlapCircle(feet.position,0.25f,groundLayer))
+        if (Physics2D.OverlapCircle(feet.position, 0.25f, groundLayer))
         {
             isGrounded = true;
             jumpCount = 0;
             jumpCoolDown = Time.time + 0.2f;
-        }else if(Time.time<jumpCoolDown)
+        }
+        else if (Time.time < jumpCoolDown)
         {
             isGrounded = true;
         }
         else
         {
             isGrounded = false;
-        }     
+        }
     }
     void FlipSprite()
     {
-        if(mx < 0)
+        if (mx < 0)
         {
             sprite.flipX = true;
-        }else if(mx > 0)
+        }
+        else if (mx > 0)
         {
             sprite.flipX = false;
         }
@@ -97,10 +139,11 @@ public class testmovement : MonoBehaviour
 
     void WalkingAnim()
     {
-        if(mx != 0)
+        if (mx != 0)
         {
             spriteAnims.SetBool("isWalking", true);
-        }else
+        }
+        else
         {
             spriteAnims.SetBool("isWalking", false);
         }
@@ -127,19 +170,34 @@ public class testmovement : MonoBehaviour
         isshrunk = false;
     }
 
-    IEnumerator getslight()
+    private IEnumerator Dash()
     {
-        islight = true;
-        yield return new WaitForSeconds(0.0001f);
-        rb.gravityScale -= 0.5f;
-        yield return new WaitForSeconds(3f);
-        rb.gravityScale = 1f;
-        yield return new WaitForSeconds(2f); //cooldown
-        islight = false;
-
-
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        DashDirection();
+        rb.velocity = new Vector2(transform.localScale.x * dashingpower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
+    void DashDirection()
+    {
+        if(mx >=0)
+        {
+            dashingpower = 15;
+        }
+        else
+        {
+            dashingpower = -15;
+        }
+    }
 
-
+   
 }
