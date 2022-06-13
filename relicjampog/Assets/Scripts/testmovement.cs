@@ -71,7 +71,7 @@ public class testmovement : MonoBehaviour
     }
     void CheckGrounded()
     {
-        if(Physics2D.OverlapCircle(feet.position,0.5f,groundLayer))
+        if(Physics2D.OverlapCircle(feet.position,0.25f,groundLayer))
         {
             isGrounded = true;
             jumpCount = 0;
