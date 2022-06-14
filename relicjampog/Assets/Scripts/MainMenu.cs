@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+  
+    public Canvas mainmenu;
+    public Canvas Settingscan;
+    public GameObject backbutton;
 
 
     public void Play()
@@ -15,17 +19,10 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
-        //Settings page. Will be on ain menu scene
+       mainmenu.enabled = false;
+        Settingscan.enabled = true;
+        backbutton.SetActive(true);
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
