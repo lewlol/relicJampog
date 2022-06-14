@@ -44,6 +44,10 @@ public class testmovement : MonoBehaviour
     //Particle
     public ParticleSystem Dust;
 
+    //Sounds
+    public SoundManager sMan;
+    public AudioSource sound;
+
     private void Start()
     {
         rb= GetComponent<Rigidbody2D>(); 
@@ -84,10 +88,9 @@ public class testmovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && shrink == true && isshrunk == false)
         {
             StartCoroutine(shrinking());
+            sound.clip = sMan.shrink;
+            sound.Play();
         }
-
-        
-
     }
 
     //Movement
@@ -97,11 +100,15 @@ public class testmovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             CreateDust();
+            sound.clip = sMan.jump;
+            sound.Play();
         } else if(!isGrounded && doubleJump == true && jumpTotal > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpTotal = 0;
             CreateDust();
+            sound.clip = sMan.jump;
+            sound.Play();
         }
     }
     void CheckGrounded()

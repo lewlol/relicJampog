@@ -12,6 +12,8 @@ public class Respawn : MonoBehaviour
     private float nonFadeval = 100f;
 
     [SerializeField] public LayerMask groundLayer;
+    public SoundManager sMan;
+    public AudioSource sound;
 
 
 
@@ -29,6 +31,8 @@ public class Respawn : MonoBehaviour
         {
             gameObject.transform.position = respawnPos;
             StartCoroutine(Blinking());
+            sound.clip = sMan.respawn;
+            sound.Play();
         }
     }
     public void Blink()
