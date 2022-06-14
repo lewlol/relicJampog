@@ -41,6 +41,9 @@ public class testmovement : MonoBehaviour
     //Animation
     public Animator spriteAnims;
 
+    //Particle
+    public ParticleSystem Dust;
+
     private void Start()
     {
         rb= GetComponent<Rigidbody2D>(); 
@@ -90,10 +93,12 @@ public class testmovement : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            CreateDust();
         } else if(!isGrounded && doubleJump == true && jumpTotal > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpTotal = 0;
+            CreateDust();
         }
     }
     void CheckGrounded()
@@ -120,10 +125,12 @@ public class testmovement : MonoBehaviour
         if (mx < 0)
         {
             sprite.flipX = true;
+            
         }
         else if (mx > 0)
         {
             sprite.flipX = false;
+            
         }
     }
     void WalkingAnim()
@@ -131,6 +138,7 @@ public class testmovement : MonoBehaviour
         if (mx != 0)
         {
             spriteAnims.SetBool("isWalking", true);
+            
         }
         else
         {
@@ -148,10 +156,12 @@ public class testmovement : MonoBehaviour
     {
         if (mx >= 0)
         {
+            
             dashingpower = 15;
         }
         else
         {
+           
             dashingpower = -15;
         }
     }
@@ -187,5 +197,10 @@ public class testmovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+    }
+
+    void CreateDust()
+    {
+        Dust.Play();
     }
 }
