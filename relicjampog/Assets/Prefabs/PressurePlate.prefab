@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8852426778960385328}
   - component: {fileID: 8852426778960385330}
   - component: {fileID: 9085701845185126479}
-  - component: {fileID: 4447129555924446626}
+  - component: {fileID: 2962368883859073549}
   m_Layer: 3
   m_Name: pp off 2
   m_TagString: Untagged
@@ -255,8 +255,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!60 &4447129555924446626
-PolygonCollider2D:
+--- !u!61 &2962368883859073549
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -264,11 +264,11 @@ PolygonCollider2D:
   m_GameObject: {fileID: 8852426778960385295}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: bce56a29fcf08924d96bfb7da9bd14df, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0009862185, y: -0.38461852}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -278,11 +278,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.375, y: -0.34969044}
-      - {x: -0.44338655, y: -0.4303174}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.44338632, y: -0.42878723}
-      - {x: 0.375, y: -0.3512206}
+  serializedVersion: 2
+  m_Size: {x: 0.71004367, y: 0.100578785}
+  m_EdgeRadius: 0
