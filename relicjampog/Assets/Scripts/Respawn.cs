@@ -8,8 +8,6 @@ public class Respawn : MonoBehaviour
     public Vector3 respawnPos;
 
     public SpriteRenderer sprite;
-    private float fadeval = 0f;
-    private float nonFadeval = 100f;
 
     [SerializeField] public LayerMask groundLayer;
     public SoundManager sMan;

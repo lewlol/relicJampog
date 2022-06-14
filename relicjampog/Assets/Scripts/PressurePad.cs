@@ -11,28 +11,26 @@ public class PressurePad : MonoBehaviour
 
     public SoundManager sMan;
     public AudioSource sound;
-    void Start()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        PressureP.sprite = off;
-    }
-    private void Awake()
-    {
-        PressureP.sprite = off;
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2")
+        {
+            PressureP.sprite = on;
+            sound.clip = sMan.pressurePadOn;
+            sound.Play();
+            activator.GetComponent<Door>().SendMessage("OpenDoor");
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        PressureP.sprite = on;
-        sound.clip = sMan.pressurePadOn;
-        sound.Play();
-        activator.GetComponent<Door>().SendMessage("OpenDoor");
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        PressureP.sprite = off;
-        sound.clip = sMan.pressurePadOff;
-        sound.Play();
-        activator.GetComponent<Door>().SendMessage("CloseDoor");
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2")
+        {
+            PressureP.sprite = off;
+            sound.clip = sMan.pressurePadOff;
+            sound.Play();
+            activator.GetComponent<Door>().SendMessage("CloseDoor");
+        }
     }
 }
