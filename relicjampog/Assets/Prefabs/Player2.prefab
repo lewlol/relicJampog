@@ -183,12 +183,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpPower: 5
-  extrajumps: 1
-  strength: 0
-  shrink: 1
+  doubleJump: 1
+  bigStength: 0
+  shrink: 0
+  canDash: 0
   isshrunk: 0
-  lightweight: 1
-  islight: 0
+  tr: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

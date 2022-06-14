@@ -13,18 +13,18 @@ public class HeavyBlock : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<testmovement>().strength > 0)
+        if(collision.gameObject.GetComponent<testmovement>().bigStength == true)
         {
             heavyblock.bodyType = RigidbodyType2D.Dynamic;
         }
-        if (collision.gameObject.GetComponent<testmovement>().strength == 0)
+        if (collision.gameObject.GetComponent<testmovement>().bigStength == false)
         {
             heavyblock.bodyType = RigidbodyType2D.Static;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<testmovement>().strength == 0)
+        if (collision.gameObject.GetComponent<testmovement>().bigStength == false)
         {
             heavyblock.bodyType = RigidbodyType2D.Dynamic;
         }

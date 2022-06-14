@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class testmovement : MonoBehaviour
 {
-
-
-    //All Char Vars
+    //Movement Vars
     public float speed = 10f;
     public float jumpPower = 15f;
 
     //Abilities
-    public int extrajumps = 1; //dani double jump
-    public int strength = 0; // lew strong grrr
-    public int shrink = 1; //radlyns small
+    public bool doubleJump; //Dani
+    public bool bigStength; //Lew
+    public bool shrink; //Rach
+    public bool canDash; //Connor
+
+    //Shrinking Vars
     public bool isshrunk = false;
 
-    private bool canDash = true;
+    //Double Jump Vars
+    private float jumpTotal = 1;
+
+    //Dashing Vars
     private bool isDashing;
     private float dashingpower ;
     private float dashingTime = 0.23f;
     private float dashingCooldown = 1f;
-
     [SerializeField] TrailRenderer tr;
-
-
-
-
 
     //Physics and Ground
     [SerializeField] public LayerMask groundLayer;
@@ -35,7 +34,6 @@ public class testmovement : MonoBehaviour
     [SerializeField] SpriteRenderer sprite;
 
     //Vars
-    int jumpCount = 0;
     bool isGrounded;
     public float mx;
     float jumpCoolDown;
@@ -45,40 +43,32 @@ public class testmovement : MonoBehaviour
 
     private void Start()
     {
-        rb= GetComponent<Rigidbody2D>();
-       
+        rb= GetComponent<Rigidbody2D>(); 
     }
-    
-
     private void FixedUpdate()
     {
+        //Dashing
         if(isDashing)
         {
             return;
         }
-
+        //Movement
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
-
-
-
     }
     private void LateUpdate()
-
-       
-
     {
+        //Dashing
         if (isDashing)
         {
             return;
         }
-
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
         }
-    
 
-            mx = Input.GetAxis("Horizontal");
+        //Movement
+        mx = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
@@ -87,25 +77,23 @@ public class testmovement : MonoBehaviour
         FlipSprite();
         WalkingAnim();
 
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && shrink == 1 && isshrunk == false)
+        //Shrink
+        if (Input.GetKeyDown(KeyCode.LeftShift) && shrink == true && isshrunk == false)
         {
             StartCoroutine(shrinking());
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(Dash());
-        }
-
-
     }
+
+    //Movement
     void Jump()
     {
-        if (isGrounded || jumpCount < extrajumps)
+        if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            jumpCount++;
+        } else if(!isGrounded && doubleJump == true && jumpTotal > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumpTotal = 0;
         }
     }
     void CheckGrounded()
@@ -113,7 +101,7 @@ public class testmovement : MonoBehaviour
         if (Physics2D.OverlapCircle(feet.position, 0.25f, groundLayer))
         {
             isGrounded = true;
-            jumpCount = 0;
+            jumpTotal = 1;
             jumpCoolDown = Time.time + 0.2f;
         }
         else if (Time.time < jumpCoolDown)
@@ -125,6 +113,8 @@ public class testmovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    //Sprites and Animation
     void FlipSprite()
     {
         if (mx < 0)
@@ -136,7 +126,6 @@ public class testmovement : MonoBehaviour
             sprite.flipX = false;
         }
     }
-
     void WalkingAnim()
     {
         if (mx != 0)
@@ -148,13 +137,26 @@ public class testmovement : MonoBehaviour
             spriteAnims.SetBool("isWalking", false);
         }
     }
-
-    void StopWalking()
+    void StopWalking() //This says not used but do not delete it is used in another script =)
     {
         spriteAnims.SetBool("isWalking", false);
     }
 
 
+    //Dash
+    void DashDirection()
+    {
+        if (mx >= 0)
+        {
+            dashingpower = 15;
+        }
+        else
+        {
+            dashingpower = -15;
+        }
+    }
+
+    //Numerators
     IEnumerator shrinking()
     {
         isshrunk = true;
@@ -186,18 +188,4 @@ public class testmovement : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
-
-    void DashDirection()
-    {
-        if(mx >=0)
-        {
-            dashingpower = 15;
-        }
-        else
-        {
-            dashingpower = -15;
-        }
-    }
-
-   
 }
