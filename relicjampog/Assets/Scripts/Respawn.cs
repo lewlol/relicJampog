@@ -7,6 +7,10 @@ public class Respawn : MonoBehaviour
     public Transform groundCheck;
     public Vector3 respawnPos;
 
+    public SpriteRenderer sprite;
+    private float fadeval = 0f;
+    private float nonFadeval = 100f;
+
     [SerializeField] public LayerMask groundLayer;
 
 
@@ -24,6 +28,37 @@ public class Respawn : MonoBehaviour
         if (collision.gameObject.tag == "ResBar")
         {
             gameObject.transform.position = respawnPos;
+            StartCoroutine(Blinking());
         }
+    }
+    public void Blink()
+    {
+        var fade = sprite.color;
+        fade.a = 0f;
+        sprite.color = fade;
+    }
+    public void nonBlink()
+    {
+        var nonfade = sprite.color;
+        nonfade.a = 100f;
+        sprite.color = nonfade;
+    }
+    IEnumerator Blinking()
+    {
+        nonBlink();
+        yield return new WaitForSeconds(0.3f);
+        Blink();
+        yield return new WaitForSeconds(0.3f);
+
+        nonBlink();
+        yield return new WaitForSeconds(0.3f);
+        Blink();
+        yield return new WaitForSeconds(0.3f);
+
+        nonBlink();
+        yield return new WaitForSeconds(0.3f);
+        Blink();
+        yield return new WaitForSeconds(0.3f);
+        nonBlink();
     }
 }

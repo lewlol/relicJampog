@@ -214,6 +214,7 @@ MonoBehaviour:
   sprite: {fileID: 5940034299623185851}
   mx: 0
   spriteAnims: {fileID: 5940034299623185850}
+  Dust: {fileID: 0}
 --- !u!114 &5209794496875396899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 5940034299166642346}
   respawnPos: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 5940034299623185851}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

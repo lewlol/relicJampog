@@ -4043,6 +4043,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7539793176307488398, guid: add3a6cab744b8e4f9529d93916608a1, type: 3}
   m_PrefabInstance: {fileID: 1283223635}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &694445052 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2268407729136997258, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
+  m_PrefabInstance: {fileID: 704898117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &704898117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4050,6 +4055,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6551554823538017654, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 694445052}
     - target: {fileID: 2268407729093210523, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
       propertyPath: m_Material
       value: 
@@ -4113,6 +4122,10 @@ PrefabInstance:
     - target: {fileID: 2268407729093210527, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268407729136997258, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
@@ -4385,23 +4398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2291dc301da63ee4983f34c3431e8502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1441622984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441622980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eddbfc9dc3d1bd4eafd4d0e1cdf1a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheck: {fileID: 1513905481}
-  respawnPos: {x: 0, y: 0, z: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!4 &1441622985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2268407729093210525, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
@@ -4552,11 +4548,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1513905481 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2268407729860622447, guid: 5b0a1ec6596261e44a35941dc0ea9f13, type: 3}
-  m_PrefabInstance: {fileID: 704898117}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1657799439
 GameObject:
   m_ObjectHideFlags: 0
