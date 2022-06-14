@@ -85,6 +85,9 @@ public class testmovement : MonoBehaviour
         {
             StartCoroutine(shrinking());
         }
+
+        
+
     }
 
     //Movement
@@ -172,9 +175,11 @@ public class testmovement : MonoBehaviour
         isshrunk = true;
         yield return new WaitForSeconds(0.0001f);
         Vector2 objectScale = transform.localScale;
+        transform.localScale = new Vector2(objectScale.x * 0.75f, objectScale.y * 0.75f);
+        yield return new WaitForSeconds(0.3f);
         transform.localScale = new Vector2(objectScale.x * 0.5f, objectScale.y * 0.5f);
         jumpPower += 2f;   //Jump Boost for being tiny (You probably dont get the reference but its a super mario powerup)
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         transform.localScale = new Vector2(objectScale.x * 1f, objectScale.y * 1f);
         jumpPower -= 2f;
 
@@ -195,6 +200,7 @@ public class testmovement : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
+      
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
