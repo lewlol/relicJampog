@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7833157634375618887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3027958366399103461}
+  - component: {fileID: 3215882787137528737}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3027958366399103461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833157634375618887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.041274, y: 1.187067, z: 2.7335422}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3215882787137528737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833157634375618887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9dc84c693da85488375f989a0342f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump: {fileID: 8300000, guid: 6587a83c49b24014db3146bea73c1771, type: 3}
+  walking: {fileID: 0}
+  respawn: {fileID: 8300000, guid: 33460d6159034834badf10bb599d513d, type: 3}
+  dash: {fileID: 0}
+  shrink: {fileID: 8300000, guid: 699651a94721f9548ae6878144ef1e42, type: 3}
+  heavyblockMove: {fileID: 0}
+  heavyblockLand: {fileID: 0}
+  pressurePadOn: {fileID: 8300000, guid: 3cd32231f4e400a47981dae36fd091ff, type: 3}
+  pressurePadOff: {fileID: 8300000, guid: 302b8fb0f9b72584ca3f3157c2241cde, type: 3}
+  lever: {fileID: 8300000, guid: ddbe45bb43de6bb43ba06c83650a03f4, type: 3}
+  door: {fileID: 0}
+  buttonHover: {fileID: 0}
+  buttonClick: {fileID: 0}
