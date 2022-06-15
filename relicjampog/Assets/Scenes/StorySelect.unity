@@ -5441,9 +5441,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 3791347756625530017}
   respawnPos: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  sMan: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!212 &3791347754525540784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5615,6 +5618,8 @@ MonoBehaviour:
   mx: 0
   spriteAnims: {fileID: 3791347754525540785}
   Dust: {fileID: 0}
+  sMan: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!50 &3791347756541085869
 Rigidbody2D:
   serializedVersion: 4
@@ -5959,6 +5964,8 @@ MonoBehaviour:
   mx: 0
   spriteAnims: {fileID: 6646199335255306750}
   Dust: {fileID: 0}
+  sMan: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!4 &4847856558300860807
 Transform:
   m_ObjectHideFlags: 0
