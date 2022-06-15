@@ -14,7 +14,7 @@ public class PressurePad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2")
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2" || collision.gameObject.tag == "HeavyBlock")
         {
             PressureP.sprite = on;
             sound.clip = sMan.pressurePadOn;
@@ -25,7 +25,7 @@ public class PressurePad : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2")
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2" || collision.gameObject.tag == "HeavyBlock")
         {
             PressureP.sprite = off;
             sound.clip = sMan.pressurePadOff;
