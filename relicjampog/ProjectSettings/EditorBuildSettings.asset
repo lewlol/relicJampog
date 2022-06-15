@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StorySelect.unity
     guid: c7c4736b5b2f3fb46b54d86d6c7c3046
   - enabled: 1
-    path: Assets/Scenes/L+D Story.unity
+    path: Assets/Scenes/LDTest.unity
     guid: aceacbe5ea33d084baaeb238a5c1ed62
   - enabled: 1
     path: Assets/Scenes/C+R Story.unity
