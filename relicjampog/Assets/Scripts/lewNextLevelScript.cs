@@ -21,18 +21,18 @@ public class lewNextLevelScript : MonoBehaviour
     {
         StartCoroutine(NextLevelChange());
         cam.transform.position = new Vector3(0, 0, 0);
-        cam.transform.position -= new Vector3(30, 0, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player2"))
+        if(collision.gameObject.tag == ("Player2"))
         {
             StartCoroutine(NextLevelChange());
         }
     }
     IEnumerator NextLevelChange()
     {
+        Debug.Log("NextLevel");
         LeanTween.moveLocalY(bar, 0, 0.5f);
         yield return new WaitForSeconds(3f);
         player1.transform.position = p1_spawns[currentLevel].transform.position;
