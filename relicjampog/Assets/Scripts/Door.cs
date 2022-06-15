@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     public Vector3 currentPos;
     public Vector3 newPos;
+    public AudioSource sound;
 
     private void Start()
     {
@@ -14,9 +15,11 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         LeanTween.moveLocal(gameObject, newPos, 0.5f);
+        sound.Play();
     }
     public void CloseDoor()
     {
         LeanTween.moveLocal(gameObject, currentPos, 0.5f);
+        sound.Play();
     }
 }
