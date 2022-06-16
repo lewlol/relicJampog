@@ -19,6 +19,7 @@ public class lewNextLevelScript : MonoBehaviour
 
     private void Start()
     {
+        bar.SetActive(true);
         StartCoroutine(NextLevelChange());
         cam.transform.position = new Vector3(0, 0, 0);
     }
@@ -33,14 +34,29 @@ public class lewNextLevelScript : MonoBehaviour
     IEnumerator NextLevelChange()
     {
         Debug.Log("NextLevel");
+        Freezing();
         LeanTween.moveLocalY(bar, 0, 0.5f);
         yield return new WaitForSeconds(3f);
         player1.transform.position = p1_spawns[currentLevel].transform.position;
         player2.transform.position = p2_spawns[currentLevel].transform.position;
-        cam.transform.position += new Vector3(30, 0, 0);
+        UnFreezing();
+        cam.transform.position += new Vector3(30, 0, 0);  
         currentLevel++;
         LeanTween.moveLocalY(bar, 1080, 0.5f);
     }
 
+    void Freezing()
+    {
+        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+    void UnFreezing()
+    {
+        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+
+        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
 
 }

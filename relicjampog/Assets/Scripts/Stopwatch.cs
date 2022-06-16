@@ -13,13 +13,11 @@ public class Stopwatch : MonoBehaviour
     public static string secondsfinal;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (finished)
@@ -40,7 +38,5 @@ public class Stopwatch : MonoBehaviour
     {
         finished = true;
         timerText.color = Color.yellow;
-
-
     }
 }
