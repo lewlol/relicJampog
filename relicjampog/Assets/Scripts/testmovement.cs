@@ -200,6 +200,8 @@ public class testmovement : MonoBehaviour
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         DashDirection();
+        sound.clip = sMan.dash;
+        sound.Play();
         rb.velocity = new Vector2(transform.localScale.x * dashingpower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
