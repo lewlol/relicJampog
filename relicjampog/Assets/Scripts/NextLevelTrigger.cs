@@ -16,6 +16,8 @@ public class NextLevelTrigger : MonoBehaviour
     public static float levelnum;
     public static string levelnum2;
     public Text leveltext;
+    public GameObject Player1;
+    public GameObject Player2;
     
 
 
@@ -39,6 +41,9 @@ public class NextLevelTrigger : MonoBehaviour
 
     IEnumerator NextLevel()
     {
+        Player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        Player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
         LeanTween.moveLocalY(transition, 0, 0.5f);
         yield return new WaitForSeconds(0.2f);
         Currentlevel++;
@@ -48,7 +53,12 @@ public class NextLevelTrigger : MonoBehaviour
         player1.position = player1spawnpoints[Currentlevel];
         player2.position = player2spawnpoints[Currentlevel];
         yield return new WaitForSeconds(0.0001f);
-        
+        Player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        Player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        Player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        Player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+
         yield return new WaitForSeconds(3f);
         leveltext.enabled = false;
         LeanTween.moveLocalY(transition, 1080, 0.5f);

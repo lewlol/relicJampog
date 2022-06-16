@@ -19853,6 +19853,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   transition: {fileID: 1235652861}
   leveltext: {fileID: 949932202}
+  Player1: {fileID: 2268407729199276513}
+  Player2: {fileID: 5890100649489337191}
 --- !u!1001 &1642929249
 PrefabInstance:
   m_ObjectHideFlags: 0
