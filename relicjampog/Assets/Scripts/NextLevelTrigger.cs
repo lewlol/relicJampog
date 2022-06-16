@@ -11,10 +11,12 @@ public class NextLevelTrigger : MonoBehaviour
     public Camera maincamera;
     public List<Vector3> player1spawnpoints = new List<Vector3>(); 
     public List<Vector3> player2spawnpoints = new List<Vector3>();
-    public int Currentlevel = 0;
+    public static int Currentlevel = 0;
     public GameObject transition;
     public static float levelnum;
+    public static string levelnum2;
     public Text leveltext;
+    
 
 
     // Start is called before the first frame update
@@ -40,14 +42,15 @@ public class NextLevelTrigger : MonoBehaviour
         LeanTween.moveLocalY(transition, 0, 0.5f);
         yield return new WaitForSeconds(0.2f);
         Currentlevel++;
-        yield return new WaitForSeconds(0.0001f);
+        yield return new WaitForSeconds(0.7f);
         leveltext.enabled = true;
         maincamera.transform.position = Cameraposition.position + new Vector3(30f, 0, 0);
         player1.position = player1spawnpoints[Currentlevel];
         player2.position = player2spawnpoints[Currentlevel];
         yield return new WaitForSeconds(0.0001f);
-
+        
         yield return new WaitForSeconds(3f);
+        leveltext.enabled = false;
         LeanTween.moveLocalY(transition, 1080, 0.5f);
 
 
@@ -58,6 +61,8 @@ public class NextLevelTrigger : MonoBehaviour
     private void Update()
     {
         levelnum = Currentlevel + 1;
+
+        levelnum2 = Currentlevel.ToString();
     }
 
 
