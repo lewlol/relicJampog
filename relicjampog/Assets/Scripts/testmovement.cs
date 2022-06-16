@@ -61,6 +61,7 @@ public class testmovement : MonoBehaviour
         }
         //Movement
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
+
     }
     private void LateUpdate()
     {
@@ -139,15 +140,14 @@ public class testmovement : MonoBehaviour
         }
         else if (mx > 0)
         {
-            sprite.flipX = false;
-            
+            sprite.flipX = false;           
         }
     }
     void WalkingAnim()
     {
         if (mx != 0)
         {
-            spriteAnims.SetBool("isWalking", true);            
+            spriteAnims.SetBool("isWalking", true);
         }
         else
         {
