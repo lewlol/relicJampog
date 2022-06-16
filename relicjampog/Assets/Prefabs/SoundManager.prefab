@@ -45,15 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {fileID: 8300000, guid: 6587a83c49b24014db3146bea73c1771, type: 3}
-  walking: {fileID: 0}
+  walking: {fileID: 8300000, guid: 5d3a407e007118547a0a617bfd16b94c, type: 3}
   respawn: {fileID: 8300000, guid: 33460d6159034834badf10bb599d513d, type: 3}
   dash: {fileID: 0}
   shrink: {fileID: 8300000, guid: 699651a94721f9548ae6878144ef1e42, type: 3}
   heavyblockMove: {fileID: 0}
-  heavyblockLand: {fileID: 0}
+  heavyblockLand: {fileID: 8300000, guid: 4f507bde2bc1dd34c8cd2a5a2de3a5a4, type: 3}
   pressurePadOn: {fileID: 8300000, guid: 3cd32231f4e400a47981dae36fd091ff, type: 3}
   pressurePadOff: {fileID: 8300000, guid: 302b8fb0f9b72584ca3f3157c2241cde, type: 3}
   lever: {fileID: 8300000, guid: ddbe45bb43de6bb43ba06c83650a03f4, type: 3}
-  door: {fileID: 0}
-  buttonHover: {fileID: 0}
-  buttonClick: {fileID: 0}
+  door: {fileID: 8300000, guid: be2561bef956a284f9e11c59a54d3e12, type: 3}
+  SelectLewDani: {fileID: 8300000, guid: 3861f8563ba96a6469d5178cd34d50dc, type: 3}
+  SelectConnorRach: {fileID: 8300000, guid: 33177e69820235745970559534cf5cc2, type: 3}
+  buttonClick: {fileID: 8300000, guid: 9a745546c190e9f4e9fac8ea6776c44a, type: 3}

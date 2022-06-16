@@ -147,8 +147,7 @@ public class testmovement : MonoBehaviour
     {
         if (mx != 0)
         {
-            spriteAnims.SetBool("isWalking", true);
-            
+            spriteAnims.SetBool("isWalking", true);            
         }
         else
         {

@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip pressurePadOff;
     public AudioClip lever;
     public AudioClip door;
-    public AudioClip buttonHover;
+    public AudioClip SelectLewDani;
+    public AudioClip SelectConnorRach;
     public AudioClip buttonClick;
 }
