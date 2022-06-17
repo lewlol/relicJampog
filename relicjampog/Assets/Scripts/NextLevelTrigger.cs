@@ -33,7 +33,7 @@ public class NextLevelTrigger : MonoBehaviour
     {
        
        
-        Currentlevel = 7;
+        Currentlevel = 0;
 
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -52,10 +52,7 @@ public class NextLevelTrigger : MonoBehaviour
             SceneManager.LoadScene(5);
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Reset();
-        }
+       
     }
 
     IEnumerator NextLevel()
@@ -101,6 +98,12 @@ public class NextLevelTrigger : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reset();
+        }
+
         levelnum = Currentlevel + 1;
 
         levelnum2 = Currentlevel.ToString();

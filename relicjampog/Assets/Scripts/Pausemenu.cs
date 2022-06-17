@@ -52,6 +52,12 @@ public class Pausemenu : MonoBehaviour
         DeactivateMenu();
     }
 
+    public void menu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+   
 
 
 }
