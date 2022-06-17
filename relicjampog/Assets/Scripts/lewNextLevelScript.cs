@@ -16,6 +16,8 @@ public class lewNextLevelScript : MonoBehaviour
 
     public GameObject bar;
 
+    public Stopwatch sw;
+
 
     private void Start()
     {
@@ -42,6 +44,10 @@ public class lewNextLevelScript : MonoBehaviour
         UnFreezing();
         cam.transform.position += new Vector3(30, 0, 0);  
         currentLevel++;
+        if (currentLevel == 9)
+        {
+            End();
+        }
         LeanTween.moveLocalY(bar, 1080, 0.5f);
     }
 
@@ -57,6 +63,11 @@ public class lewNextLevelScript : MonoBehaviour
 
         player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    void End()
+    {
+        sw.SendMessage("finish");
     }
 
 }
