@@ -12,6 +12,7 @@ public class Selectstorything : MonoBehaviour
     [SerializeField] SpriteRenderer P2;
     public Animator spriteAnims1;
     public Animator spriteAnims2;
+    public AudioSource source;
 
 
     void Update()
@@ -25,6 +26,8 @@ public class Selectstorything : MonoBehaviour
         Heart.enabled = true;
         spriteAnims1.SetBool("isWalking", true);
         spriteAnims2.SetBool("isWalking", true);
+        
+        
     }
     private void OnMouseExit()
     {
@@ -33,6 +36,8 @@ public class Selectstorything : MonoBehaviour
         Heart.enabled = false;
         spriteAnims1.SetBool("isWalking", false);
         spriteAnims2.SetBool("isWalking", false);
+        
     }
+    
 
 }
