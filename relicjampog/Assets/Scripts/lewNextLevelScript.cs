@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class lewNextLevelScript : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class lewNextLevelScript : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
 
-    int currentLevel = 0;
+    public int currentLevel = 0;
 
     public GameObject cam;
 
@@ -46,7 +47,7 @@ public class lewNextLevelScript : MonoBehaviour
         player2.transform.position = p2_spawns[currentLevel].transform.position;
         UnFreezing();
         cam.transform.position += new Vector3(30, 0, 0);  
-        if (currentLevel == 9)
+        if (currentLevel == 6)
         {
             End();
         }
@@ -62,7 +63,7 @@ public class lewNextLevelScript : MonoBehaviour
         player2.transform.position = p2_spawns[currentLevel].transform.position;
         UnFreezing();
         cam.transform.position += new Vector3(30, 0, 0);
-        if (currentLevel == 9)
+        if (currentLevel == 7)
         {
             End();
         }
@@ -86,6 +87,7 @@ public class lewNextLevelScript : MonoBehaviour
     void End()
     {
         sw.SendMessage("finish");
+        SceneManager.LoadScene("LewDaniComplete");
     }
 
     void Retry()

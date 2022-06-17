@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ConRadFin.unity
     guid: a676a8e1abd7f1b4abdb83e261f11285
+  - enabled: 1
+    path: Assets/Scenes/LewDaniComplete.unity
+    guid: 25a116c0ce0ea42458315ba2e27778ff
   m_configObjects: {}

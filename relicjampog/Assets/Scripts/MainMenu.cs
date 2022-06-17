@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         backbutton.SetActive(false);
+        Settingscan.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void Play()
     {
