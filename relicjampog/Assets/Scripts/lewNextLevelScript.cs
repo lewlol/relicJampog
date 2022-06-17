@@ -18,11 +18,13 @@ public class lewNextLevelScript : MonoBehaviour
 
     public Stopwatch sw;
 
+    public GameObject[] hb;
+
 
     private void Start()
     {
         bar.SetActive(true);
-        StartCoroutine(NextLevelChange());
+        StartCoroutine(StartLevels());
         cam.transform.position = new Vector3(0, 0, 0);
     }
 
@@ -37,13 +39,29 @@ public class lewNextLevelScript : MonoBehaviour
     {
         Debug.Log("NextLevel");
         Freezing();
+        currentLevel++;
         LeanTween.moveLocalY(bar, 0, 0.5f);
         yield return new WaitForSeconds(3f);
         player1.transform.position = p1_spawns[currentLevel].transform.position;
         player2.transform.position = p2_spawns[currentLevel].transform.position;
         UnFreezing();
         cam.transform.position += new Vector3(30, 0, 0);  
-        currentLevel++;
+        if (currentLevel == 9)
+        {
+            End();
+        }
+        LeanTween.moveLocalY(bar, 1080, 0.5f);
+    }
+
+    IEnumerator StartLevels()
+    {
+        Freezing();
+        LeanTween.moveLocalY(bar, 0, 0.5f);
+        yield return new WaitForSeconds(3f);
+        player1.transform.position = p1_spawns[currentLevel].transform.position;
+        player2.transform.position = p2_spawns[currentLevel].transform.position;
+        UnFreezing();
+        cam.transform.position += new Vector3(30, 0, 0);
         if (currentLevel == 9)
         {
             End();
@@ -68,6 +86,23 @@ public class lewNextLevelScript : MonoBehaviour
     void End()
     {
         sw.SendMessage("finish");
+    }
+
+    void Retry()
+    {
+        player1.transform.position = p1_spawns[currentLevel].transform.position;
+        player2.transform.position = p2_spawns[currentLevel].transform.position;
+        hb[0].GetComponent<Transform>().position = hb[0].GetComponent<HeavyBlock>().startPos;
+        hb[1].GetComponent<Transform>().position = hb[1].GetComponent<HeavyBlock>().startPos;
+        hb[2].GetComponent<Transform>().position = hb[2].GetComponent<HeavyBlock>().startPos;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Retry();
+        }
     }
 
 }

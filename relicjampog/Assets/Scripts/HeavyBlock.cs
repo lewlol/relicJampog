@@ -5,11 +5,15 @@ using UnityEngine;
 public class HeavyBlock : MonoBehaviour
 {
     private Rigidbody2D heavyblock;
+    public Vector3 startPos;
+
+    
     void Start()
     {
         heavyblock = gameObject.GetComponent<Rigidbody2D>();
-
         heavyblock.bodyType = RigidbodyType2D.Dynamic;
+
+        startPos = transform.position;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
