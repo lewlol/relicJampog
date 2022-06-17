@@ -20,6 +20,9 @@ public class NextLevelTrigger : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Time;
+    public GameObject Block1;
+    public GameObject Block2;
+   
     
 
 
@@ -47,6 +50,11 @@ public class NextLevelTrigger : MonoBehaviour
         {
             Time.SendMessage("finish");
             SceneManager.LoadScene(5);
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Reset();
         }
     }
 
@@ -78,6 +86,15 @@ public class NextLevelTrigger : MonoBehaviour
         LeanTween.moveLocalY(transition, 1080, 0.5f);
 
 
+
+    }
+
+    private void Reset()
+    {
+        player1.transform.position = player1spawnpoints[Currentlevel];
+        player2.transform.position = player2spawnpoints[Currentlevel];
+        Block1.transform.position = new Vector3(63, 5, 0);
+        Block2.transform.position = new Vector3(129, 0, 0);
 
     }
 

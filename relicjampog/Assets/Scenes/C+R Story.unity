@@ -23229,6 +23229,8 @@ MonoBehaviour:
   Player1: {fileID: 2268407729199276513}
   Player2: {fileID: 5890100649489337191}
   Time: {fileID: 1995208133}
+  Block1: {fileID: 2516216729370541717}
+  Block2: {fileID: 2017369854}
 --- !u!1001 &1642929249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24983,11 +24985,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2516216728957356665, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 128.52
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 2516216728957356665, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.55476975
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2516216728957356665, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25031,6 +25033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
+--- !u!1 &2017369854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2516216728957356669, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
+  m_PrefabInstance: {fileID: 2017369853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2028950752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26462,7 +26469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2516216728957356665, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 62.86
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 2516216728957356665, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26514,6 +26521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
+--- !u!1 &2516216729370541717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2516216728957356669, guid: fe3dd21dc00c7da4c8eb0df2f744af03, type: 3}
+  m_PrefabInstance: {fileID: 2516216729370541716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &2962368881998521045
 BoxCollider2D:
   m_ObjectHideFlags: 0
