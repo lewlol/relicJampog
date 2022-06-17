@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class NextLevelTrigger : MonoBehaviour
     public Text leveltext;
     public GameObject Player1;
     public GameObject Player2;
+    public GameObject Time;
     
 
 
@@ -28,7 +30,7 @@ public class NextLevelTrigger : MonoBehaviour
     {
        
        
-        Currentlevel = 0;
+        Currentlevel = 7;
 
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -39,8 +41,20 @@ public class NextLevelTrigger : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(Currentlevel == 8)
+        {
+            Time.SendMessage("finish");
+            SceneManager.LoadScene(5);
+        }
+    }
+
     IEnumerator NextLevel()
     {
+       
+
+
         Player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 

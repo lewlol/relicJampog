@@ -12,6 +12,6 @@ public class Leveluicount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        level.text = NextLevelTrigger.levelnum + "/12";
+        level.text = NextLevelTrigger.levelnum + "/8";
     }
 }

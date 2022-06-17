@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/C+R Story.unity
     guid: f475025df4502bf4ab738ad7c13f314e
+  - enabled: 1
+    path: Assets/Scenes/ConRadComp.unity
+    guid: 8bf12a1ae70dbaa4d81e273e67484627
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
