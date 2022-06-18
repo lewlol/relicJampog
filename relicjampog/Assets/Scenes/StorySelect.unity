@@ -1749,13 +1749,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '-osdauguyd
-
-    -saiydfu
-
-    -aisyfd]
-
-    -adidsyf'
+  m_Text: "-Connor can dash accross open \nspaces with speed and efficiency\n-Richael
+    can shrink to squeeze\nand fit in nooks and crannies\n  \n                  
+    Medium Difficulty\n                    \n                   "
 --- !u!222 &857788037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4587,13 +4583,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '-osdauguyd
-
-    -saiydfu
-
-    -aisyfd]
-
-    -adidsyf'
+  m_Text: "-Lew can push strong blocks to \nmove throughout the levels.\n-Dani can
+    double jump accross\ngaps and high spaces.\n\n                     Easy DIfficulty\n"
 --- !u!222 &1898508750
 CanvasRenderer:
   m_ObjectHideFlags: 0
