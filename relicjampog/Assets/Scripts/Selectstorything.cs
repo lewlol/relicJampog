@@ -15,9 +15,9 @@ public class Selectstorything : MonoBehaviour
     public AudioSource source;
 
 
-    void Update()
+    private void OnMouseEnter()
     {
-        
+        source.Play();
     }
     private void OnMouseOver()
     {
