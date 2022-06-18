@@ -14,12 +14,10 @@ public class Selectstorything : MonoBehaviour
     public Animator spriteAnims2;
     public AudioSource source;
 
-    public AudioSource sound;
 
-
-    private void OnMouseEnter()
+    void Update()
     {
-        sound.Play();
+        
     }
     private void OnMouseOver()
     {
