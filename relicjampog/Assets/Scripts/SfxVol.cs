@@ -11,7 +11,7 @@ public class SfxVol : MonoBehaviour
 
     private void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("sfxVolume", 0.75f);
+        slider.value = PlayerPrefs.GetFloat("sfxVolume", 0.25f);
     }
 
     public void SetLevel(float sliderValue)

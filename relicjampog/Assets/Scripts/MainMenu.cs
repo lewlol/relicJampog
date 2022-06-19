@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         sounds.Play();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("StorySelect");
     }
 
     public void Settings()

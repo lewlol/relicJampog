@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class lewNextLevelScript : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class lewNextLevelScript : MonoBehaviour
 
     public GameObject[] hb;
 
+    public GameObject leveltang;
 
     private void Start()
     {
@@ -39,18 +41,24 @@ public class lewNextLevelScript : MonoBehaviour
     IEnumerator NextLevelChange()
     {
         Debug.Log("NextLevel");
-        Freezing();
+        Freezing();      
         currentLevel++;
+        if (currentLevel == 7)
+        {
+            End();
+        }
         LeanTween.moveLocalY(bar, 0, 0.5f);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        if(currentLevel < 7)
+        {
+            ShowLevelThing();
+        }
+        yield return new WaitForSeconds(2f);
         player1.transform.position = p1_spawns[currentLevel].transform.position;
         player2.transform.position = p2_spawns[currentLevel].transform.position;
         UnFreezing();
         cam.transform.position += new Vector3(30, 0, 0);  
-        if (currentLevel == 6)
-        {
-            End();
-        }
+        HideLevelThing();
         LeanTween.moveLocalY(bar, 1080, 0.5f);
     }
 
@@ -58,6 +66,7 @@ public class lewNextLevelScript : MonoBehaviour
     {
         Freezing();
         LeanTween.moveLocalY(bar, 0, 0.5f);
+        ShowLevelThing();
         yield return new WaitForSeconds(3f);
         player1.transform.position = p1_spawns[currentLevel].transform.position;
         player2.transform.position = p2_spawns[currentLevel].transform.position;
@@ -67,6 +76,7 @@ public class lewNextLevelScript : MonoBehaviour
         {
             End();
         }
+        HideLevelThing();
         LeanTween.moveLocalY(bar, 1080, 0.5f);
     }
 
@@ -105,6 +115,17 @@ public class lewNextLevelScript : MonoBehaviour
         {
             Retry();
         }
+    }
+
+    void ShowLevelThing()
+    {
+        leveltang.SetActive(true);
+        leveltang.GetComponent<Text>().text = "Level " + (currentLevel + 1);
+    }
+
+    void HideLevelThing()
+    {
+        leveltang.SetActive(false);
     }
 
 }

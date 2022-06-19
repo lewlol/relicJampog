@@ -49,7 +49,7 @@ public class NextLevelTrigger : MonoBehaviour
         if(Currentlevel == 8)
         {
             Time.SendMessage("finish");
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene("ConRadFin");
         }
 
        
